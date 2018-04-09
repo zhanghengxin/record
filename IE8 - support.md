@@ -2,7 +2,7 @@
 ## IE8 不支持 querySelector() 和 querySelectorAll()
 
 > 添加标签
-> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+> ```<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">```
 
 ## quest
 ## IE8 >> :visited 和 :link 样式只能在颜色上不同。有些样式未应用于 :visited。
