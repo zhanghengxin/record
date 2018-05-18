@@ -1,0 +1,291 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"ar",
+				"arguments"
+			],
+			[
+				"set",
+				"setTimeout〔function〕"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "/*function aa(fn) {\n\t// body...\n\tvar args = [].slice.call(arguments);\n\treturn function(){\n\t\tvar new\n\t}\n}*/\n/*\n * first\n * curry 第一步\n *\n */\nvar curry = function(fn) {\n\tvar args = [].slice.call(arguments, 1);\n\treturn function() {\n\t\tvar newArgs = args.concat([].slice.call(arguments));\n\t\treturn fn.apply(this, newArgs);\n\t};\n};\n\nfunction add(a, b) {\n\treturn a + b;\n}\n\nvar curryAdd = curry(add,1,2);\n\n/* fu curry 加工的方法\n *\t\n **/\nfunction curry(fn, args) {\n\t// fn.length params's totle\n\tvar length = fn.length;\n\targs = args || [];\n\treturn function() {\n\t\t// _args copy args\n\t\t// \n\t\tvar _args = args.slice(0),\n\t\t\targ, i;\n\t\tfor (var i = arguments.length - 1; i >= 0; i--) {\n\t\t\targ = arguments[i];\n\t\t\t_args.push(arg)\n\t\t}\n\t\tif (_args.length < length) {\n\t\t\treturn curry.call(this, fn, _args);\n\t\t} else {\n\t\t\treturn fn.apply(this, _args)\n\t\t}\n\t}\n}\n\nfunction add(a, b, c) {\n\t// body...\n\treturn a + b + c;\n}\n\nconst curryAdd = curry(add);\nconst curryAdd5 = curry(add)(5);\n\nconsole.log(curry(5)(10)(15))\nconsole.log(curry(5, 10)(15))\nconsole.log(curry(5)(10, 15))\nconsole.log(curry(5, 10, 15))\n\n\nFunction.prototype.bind2 = function(context) {\n\t//\n\tvar self = this;\n\treturn function() {\n\t\treturn self.apply(context)\n\t}\n}",
+			"file": "currying.js",
+			"file_size": 820,
+			"file_write_time": 131689657481026728,
+			"settings":
+			{
+				"buffer_size": 1199,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 203.0,
+		"last_filter": "Package Control: in",
+		"selected_items":
+		[
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: re",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Install Package Control"
+			]
+		],
+		"width": 440.0
+	},
+	"console":
+	{
+		"height": 192.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/E/0git0/record"
+	],
+	"file_history":
+	[
+		"/E/0git0/record/brower.js",
+		"/E/0git0/javascriptDesignHkk/currying.js",
+		"/E/0git0/javascriptDesignHkk/AsynchronousModuleDefinition.js",
+		"/E/0git0/record/interviewQuestion-js.md",
+		"/E/0git0/record/.git/HEAD",
+		"/E/0git0/record/.git/config",
+		"/C/Users/zhang/.ssh/id_rsa.pub",
+		"/C/Users/zhang/.gitconfig",
+		"/E/HKK_works/test/node-tcp/index.js",
+		"/E/0H'k/N-blog/middlewares/check.js",
+		"/C/Users/zhang/Downloads/jquery-easyui-1.5.4.5/demo/datagrid/basic.html",
+		"/E/YS360_V2_hkk/YSDataProvider/package.json",
+		"/E/0H'k/N-blog/node_modules/mongodb/lib/mongo_client.js",
+		"/E/0H'k/N-blog/node_modules/mocha/mocha.js",
+		"/C/Program Files/MongoDB/Server/3.4/README",
+		"/E/0H'k/N-blog/package.json",
+		"/E/0H'k/daily/proxy.js",
+		"/E/0H'k/daily/package-lock.json",
+		"/E/0H'k/daily/package.json",
+		"/C/Users/Administrator/Documents/mongo.cfg",
+		"/C/Program Files/MongoDB/Server/mongo.cfg",
+		"/G/data/log/mongo.logs",
+		"/C/Program Files/MongoDB/Server/mongoRecord.cfg",
+		"/G/data/mongo.logs",
+		"/G/data/log/mongod.log.2018-04-14T05-12-12",
+		"/G/data/log/mongod.log.2018-04-14T05-12-45",
+		"/C/Users/zhang/Documents/mongo.cfg",
+		"/C/Users/zhang/Documents/mongo.cfg.html",
+		"/C/Users/zhang/AppData/Roaming/Sublime Text 3/Packages/SublimeCodeIntel/SublimeCodeIntel.sublime-settings",
+		"/C/Users/zhang/AppData/Roaming/Sublime Text 3/Packages/Emmet/Emmet.sublime-settings",
+		"/C/Users/zhang/AppData/Roaming/Sublime Text 3/Installed Packages/Emmet.sublime-package"
+	],
+	"find":
+	{
+		"height": 45.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"array",
+			"object"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "currying.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1199,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								134,
+								134
+							]
+						],
+						"settings":
+						{
+							"SL.31.region_keys":
+							[
+							],
+							"auto_complete": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 72.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 32.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SublimeLinter":
+	{
+		"height": 0.0
+	},
+	"output.SublimeLinter Messages":
+	{
+		"height": 156.0
+	},
+	"output.exec":
+	{
+		"height": 156.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "record.sublime-project",
+	"replace":
+	{
+		"height": 60.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 210.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
