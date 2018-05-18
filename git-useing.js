@@ -1,3 +1,7 @@
+推送数据到远程仓库
+git push [remote-name] [branch-name]
+eg.
+	$ git push origin master
 1.使用强制push的方法：
 $ git push -u origin master -f 
 这样会使远程修改丢失，一般是不可取的，尤其是多人协作开发的时候。
@@ -8,6 +12,14 @@ $ git push -u origin master
 $ git branch [name]
 然后push
 $ git push -u origin [name]
+
+
+更新本地
+git stash //保存本地更改
+git pull
+git stash pop //取回来
+从远程抓取数据（需要手动更新）
+$ git fetch [remote-name]
 
 
 创建分支
