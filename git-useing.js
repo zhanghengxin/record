@@ -20,6 +20,9 @@ git pull
 git stash pop //取回来
 从远程抓取数据（需要手动更新）
 $ git fetch [remote-name]
+$ git fetch master:temp //从远程获取最新到temp
+$ git merge temp //合并分支
+$ git branch -d temp //删除temp分支
 
 
 创建分支
@@ -31,6 +34,6 @@ $ git checkout newbranch
 合并分支到主分支
 $ git merge newbranch
 查看分支冲突
-$ git diff
+$ git diff [\/barnch]
 删除分支
 $ git branch -D newbranch
