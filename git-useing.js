@@ -46,4 +46,11 @@ $ git branch -D <newBranch>
 $ git tag <newName>
 查看标签
 $ git tag 
+查看标签详情
+$ git show <version>
+对标签进行描述
+$ git tag [-a] <version> <description> [commitId]
+// git tag -a v1.2 -m "最新代码" 2bf9f5b 
+
+
 
