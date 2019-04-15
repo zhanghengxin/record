@@ -16,15 +16,15 @@
 	"buffers":
 	[
 		{
-			"contents": "/*function aa(fn) {\n\t// body...\n\tvar args = [].slice.call(arguments);\n\treturn function(){\n\t\tvar new\n\t}\n}*/\n/*\n * first\n * curry 第一步\n *\n */\nvar curry = function(fn) {\n\tvar args = [].slice.call(arguments, 1);\n\treturn function() {\n\t\tvar newArgs = args.concat([].slice.call(arguments));\n\t\treturn fn.apply(this, newArgs);\n\t};\n};\n\nfunction add(a, b) {\n\treturn a + b;\n}\n\nvar curryAdd = curry(add,1,2);\n\n/* fu curry 加工的方法\n *\t\n **/\nfunction curry(fn, args) {\n\t// fn.length params's totle\n\tvar length = fn.length;\n\targs = args || [];\n\treturn function() {\n\t\t// _args copy args\n\t\t// \n\t\tvar _args = args.slice(0),\n\t\t\targ, i;\n\t\tfor (var i = arguments.length - 1; i >= 0; i--) {\n\t\t\targ = arguments[i];\n\t\t\t_args.push(arg)\n\t\t}\n\t\tif (_args.length < length) {\n\t\t\treturn curry.call(this, fn, _args);\n\t\t} else {\n\t\t\treturn fn.apply(this, _args)\n\t\t}\n\t}\n}\n\nfunction add(a, b, c) {\n\t// body...\n\treturn a + b + c;\n}\n\nconst curryAdd = curry(add);\nconst curryAdd5 = curry(add)(5);\n\nconsole.log(curry(5)(10)(15))\nconsole.log(curry(5, 10)(15))\nconsole.log(curry(5)(10, 15))\nconsole.log(curry(5, 10, 15))\n\n\nFunction.prototype.bind2 = function(context) {\n\t//\n\tvar self = this;\n\treturn function() {\n\t\treturn self.apply(context)\n\t}\n}",
+			"contents": "// function aa(fn) {\n// \t// body...\n// \tvar args = [].slice.call(arguments);\n// \treturn function(){\n// \t\tvar new\n// \t}\n// }\n/* fu curry 加工的方法\n *\t\n **/\nfunction curry(fn, args) {\n\t// fn.length params's totle\n\tvar length = fn.length;\n\targs = args || [];\n\treturn function() {\n\t\tvar _args = args.slice(0),\n\t\t\targ, i;\n\t\tfor (var i = arguments.length - 1; i >= 0; i--) {\n\t\t\targ = arguments[i];\n\t\t\t_args.push(arg)\n\t\t}\n\t\tif (_args.length < length) {\n\t\t\treturn curry.call(this, fn, _args);\n\t\t} else {\n\t\t\treturn fn.apply(this, _args)\n\t\t}\n\t}\n}\n\nfunction add(a, b, c) {\n\t// body...\n\treturn a + b + c;\n}\n\nconst curryAdd = curry(add);\nconst curryAdd5 = curry(add)(5);\n\nconsole.log(curry(5)(10)(15))\nconsole.log(curry(5,10)(15))\nconsole.log(curry(5)(10,15))\nconsole.log(curry(5,10,15))",
 			"file": "currying.js",
-			"file_size": 820,
-			"file_write_time": 131689657481026728,
+			"file_size": 780,
+			"file_write_time": 131731945247949472,
 			"settings":
 			{
-				"buffer_size": 1199,
+				"buffer_size": 770,
 				"encoding": "UTF-8",
-				"line_ending": "Windows"
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -84,7 +84,7 @@
 	},
 	"expanded_folders":
 	[
-		"/E/0git0/record"
+		"/Users/baiwang-032/Desktop/learnDoc/record"
 	],
 	"file_history":
 	[
@@ -122,7 +122,7 @@
 	],
 	"find":
 	{
-		"height": 45.0
+		"height": 27.0
 	},
 	"find_in_files":
 	{
@@ -164,20 +164,29 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1199,
+						"buffer_size": 770,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								134,
-								134
+								533,
+								533
 							]
 						],
 						"settings":
 						{
+							"SL.13.region_keys":
+							[
+							],
 							"SL.31.region_keys":
+							[
+							],
+							"SL.42.region_keys":
+							[
+							],
+							"SL.71.region_keys":
 							[
 							],
 							"auto_complete": false,
@@ -185,7 +194,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 72.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -196,7 +205,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 32.0
+		"height": 27.0
 	},
 	"input":
 	{
@@ -245,7 +254,7 @@
 	"project": "record.sublime-project",
 	"replace":
 	{
-		"height": 60.0
+		"height": 50.0
 	},
 	"save_all_on_build": true,
 	"select_file":
